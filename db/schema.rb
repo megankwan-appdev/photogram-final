@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_21_000217) do
+ActiveRecord::Schema.define(version: 2022_05_26_194350) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "author_id"
@@ -46,12 +46,13 @@ ActiveRecord::Schema.define(version: 2022_05_21_000217) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "comments_count"
     t.string "email"
+    t.string "password_digest"
+    t.integer "comments_count"
     t.integer "likes_count"
-    t.string "password_digest_string"
     t.boolean "private"
     t.string "username"
+    t.integer "photos_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
