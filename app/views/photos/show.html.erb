@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Photo #<%= @the_photo.id %> details
+      Photo Details
     </h1>
 
     <div>
@@ -19,19 +19,6 @@
     </div>
 
     <dl>
-      <dt>
-        Caption
-      </dt>
-      <dd>
-        <%= @the_photo.caption %>
-      </dd>
-
-      <dt>
-        Comments count
-      </dt>
-      <dd>
-        <%= @the_photo.comments_count %>
-      </dd>
 
       <dt>
         Image
@@ -41,10 +28,10 @@
       </dd>
 
       <dt>
-        Likes count
+        Caption
       </dt>
       <dd>
-        <%= @the_photo.likes_count %>
+        <%= @the_photo.caption %>
       </dd>
 
       <dt>
@@ -55,23 +42,75 @@
       </dd>
 
       <dt>
-        Created at
+        Posted
       </dt>
       <dd>
         <%= time_ago_in_words(@the_photo.created_at) %> ago
       </dd>
 
       <dt>
-        Updated at
+        Likes count
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_photo.updated_at) %> ago
+        <%= @the_photo.likes_count %>
       </dd>
+
+      <dt>
+        Comments count
+      </dt>
+      <dd>
+        <%= @the_photo.comments_count %>
+      </dd>
+
+<h2>Comments</h2>
+<table border="1">
+      <tr>
+        <th>
+          Commenter
+        </th>
+
+        <th>
+          Comment
+        </th>
+
+        <th>
+          Posted
+        </th>
+
+         <% @list_of_photos.each do |a_photo| %>
+      <tr>
+        <td>
+          <%= a_photo.owner_id %>
+        </td>
+
+        <td>
+          <%= a_photo.comments %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_photo.created_at) %> ago
+        </td>
+        </table>
+        <%end%>
     </dl>
   </div>
 </div>
 
 <hr>
+<h2>Add a new comment </h2>
+ <form action="/insert_comment" method="post">
+    
+        <label for="comment_box">
+          Comment
+        </label>
+
+        <textarea id="comment_box" name="query_comment" rows="3">Enter a comment...</textarea>
+      </div>
+      
+      <button>
+        Add comment
+      </button>
+    </form>
 
 
 <div>

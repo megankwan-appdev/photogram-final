@@ -9,4 +9,5 @@
 #  photo_id   :integer
 #
 class Like < ApplicationRecord
+  belongs_to(:photo, { :required => true, :class_name => "Photo", :foreign_key => "photo_id" })
 end

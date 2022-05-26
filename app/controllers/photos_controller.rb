@@ -14,6 +14,8 @@ class PhotosController < ApplicationController
 
     @the_photo = matching_photos.at(0)
 
+    @list_of_photos = matching_photos.order({ :created_at => :desc })
+
     render({ :template => "photos/show.html.erb" })
   end
 

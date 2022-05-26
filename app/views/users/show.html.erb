@@ -1,52 +1,8 @@
 <div>
   <div>
-    <h1>
-      User #<%= @the_user.id %> details
-    </h1>
-
-    <div>
-      <div>
-        <a href="/users">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_user/<%= @the_user.id %>">
-          Delete user
-        </a>
-      </div>
-    </div>
-
-    <dl>
-      <dt>
-        Comments count
-      </dt>
-      <dd>
-        <%= @the_user.comments_count %>
-      </dd>
-
-      <dt>
-        Email
-      </dt>
-      <dd>
-        <%= @the_user.email %>
-      </dd>
-
-      <dt>
-        Likes count
-      </dt>
-      <dd>
-        <%= @the_user.likes_count %>
-      </dd>
-
-      <dt>
-        Password digest string
-      </dt>
-      <dd>
-        <%= @the_user.password_digest_string %>
-      </dd>
-
+    <h2>
+      <%= @the_user.username %> 
+    </h2>
       <dt>
         Private
       </dt>
@@ -55,28 +11,37 @@
       </dd>
 
       <dt>
-        Username
+        Followers
       </dt>
       <dd>
-        <%= @the_user.username %>
+        <%= @the_user.likes_count %>
       </dd>
 
       <dt>
-        Created at
+        Following
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_user.created_at) %> ago
+        <%= @the_user.likes_count %>
       </dd>
 
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_user.updated_at) %> ago
-      </dd>
+      <li>
+      <a href="/users">Profile</a>
+    </li>
+    <li>
+      <a href="/photos">Liked photos</a>
+    </li>
+    <li>
+      <a href="/photos">Feed</a>
+    </li>
+    <li>
+      <a href="/photos">Discover</a>
+    </li>
+  
     </dl>
   </div>
 </div>
+
+<h2>Own photos</h2>
 
 <hr>
 
